@@ -9,16 +9,16 @@ def on_grid_random():
     y = random.randint(0,590)
     return (x//10 * 10, y//10 * 10)
 
-#sort grid monster
-def on_grid_random_monster():
-    x = random.randint(0,590)
-    y = random.randint(0,590)
-    pos1 = ((x+10)//10 * 10, y//10 * 10)
-    pos2 = (((x+10)//10) * 10, ((y+10)//10) * 10)
-    pos3 = (x//10 * 10, ((y+10)//10) * 10)
-    monster_pos = [pos1, pos2, pos3]
-    print(monster_pos)
-    return monster_pos
+# #sort grid monster
+# def on_grid_random_monster():
+#     x = random.randint(0,590)
+#     y = random.randint(0,590)
+#     pos1 = ((x+10)//10 * 10, y//10 * 10)
+#     pos2 = (((x+10)//10) * 10, ((y+10)//10) * 10)
+#     pos3 = (x//10 * 10, ((y+10)//10) * 10)
+#     monster_pos = [pos1, pos2, pos3]
+#     print(monster_pos)
+#     return monster_pos
 
 #collision on apple
 def collisionApple(c1, c2):
@@ -28,9 +28,9 @@ def collisionApple(c1, c2):
 def collisionBody(c1, c2):
     return c1 == c2
 
-#collision on monster
-def collisionMonster(c1, c2):
-    return c1 == c2
+# #collision on monster
+# def collisionMonster(c1, c2):
+#     return c1 == c2
 
 #collision on border
 def collisionBorder(c1):
@@ -64,10 +64,10 @@ apple_pos = on_grid_random()
 apple = pygame.Surface((10,10))
 apple.fill((255,0,0))
 
-#setup monster
-monster_pos = ((100,100))
-monster = pygame.Surface((10,10))
-monster.fill((255, 255, 255))
+# #setup monster
+# monster_pos = ((100,100))
+# monster = pygame.Surface((10,10))
+# monster.fill((255, 255, 255))
 
 #start direction
 my_direction = LEFT
@@ -139,19 +139,18 @@ while game == True:
         #add +1 in snake
         snake.append((0,0))
         
-    #print monster on screen
-    if score % 5 == 0 and score != 0:
-        monster_pos = on_grid_random_monster()    
-        screen.blit(monster, monster_pos)    
+#     #print monster on screen
+#     if score % 5 == 0 and score != 0:
+#         screen.blit(monster, monster_pos)    
         
     #collision on body
     for i in range(len(snake) - 1, 0, -1):
         if collisionBody(snake[0], snake[i]):
             game = False
             
-    #collision on monster    
-    if collisionMonster(snake[0], monster_pos):
-        game = False
+#     #collision on monster    
+#     if collisionMonster(snake[0], monster_pos):
+#         game = False
     
     #collision on border
     if collisionBorder(snake[0]):
