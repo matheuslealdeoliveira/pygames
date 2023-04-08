@@ -1,0 +1,2 @@
+# Bibliotecas para que o projeto
+pygame
